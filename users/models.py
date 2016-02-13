@@ -7,6 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class Person(models.Model):
     phone_number = PhoneNumberField(unique=True)
+    name = models.CharField(max_length=500)
 
 class Rating(models.Model):
     created_at = models.DateField(auto_now_add=True)

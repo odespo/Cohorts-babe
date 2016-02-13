@@ -8,10 +8,12 @@ import json
 def createUser(request):
     try:
         user_number = request.POST.get('user_number', False)
-        if not user_number:
+        user_name = request.POST.get('user_name', False)
+
+        if not user_number or not user_name:
             return HttpResponse(0)
 
-        p = Person(phone_number=str(user_number))
+        p = Person(phone_number=str(user_number), name=str(user_name))
         p.save()
         # TODO: what to return?
         return HttpResponse(1)
