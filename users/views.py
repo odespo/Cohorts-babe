@@ -36,6 +36,6 @@ def createRating(request):
         rating_dump = json.dumps(ratings)
         rating = Rating(person_rating = rater, person_rated = rated, rating_list=rating_dump)
         rating.save()
-
+        return HttpResponse(1)
     except:
         return HttpResponse(0)
